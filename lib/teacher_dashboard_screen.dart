@@ -131,11 +131,11 @@ class _UserListState extends State<UserList> {
                         TextEditingController newChocolateController =
                             TextEditingController();
                         return AlertDialog(
-                          title: const Text('Update Name'),
+                          title: const Text('Bid Players'),
                           content: TextField(
                             controller: newChocolateController,
                             decoration: const InputDecoration(
-                              labelText: 'New Name',
+                              labelText: 'No. of Chocolates',
                             ),
                           ),
                           actions: <Widget>[
@@ -236,7 +236,9 @@ class _UserListState extends State<UserList> {
         });
       } else {
         // Perform some other action
-        debugPrint('No chocolates Left.');
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('You do not have this much chocolate')),
+        );
       }
     } else {
       debugPrint('Please Add higher Bidding Choclates');
